@@ -22,7 +22,7 @@ export const Navbar = () => {
 
   React.useEffect(() => {
     axios
-      .get(`http://api.tvmaze.com/search/shows?q=${searchText}`)
+      .get(`https://api.tvmaze.com/search/shows?q=${searchText}`)
 
       .then(({ data }) => {
         setSearchData(data)
