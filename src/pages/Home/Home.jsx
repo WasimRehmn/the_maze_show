@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { DataContext } from '../../context/ContextProvider'
 
 export const Home = () => {
-  const { searchDataHome, setSearchDataHome, searchQuery, setSearchQuery } = React.useContext(DataContext)
+  const { searchDataHome, searchQuery } = React.useContext(DataContext)
 
   const [webData, setWebData] = React.useState({})
   const [genres, setGenres] = React.useState([])

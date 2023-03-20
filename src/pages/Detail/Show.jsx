@@ -29,7 +29,7 @@ export const Show = () => {
       .catch((error) => {
         alert(error.message)
       })
-  }, [])
+  }, [location.pathname])
 
   return (
     <>

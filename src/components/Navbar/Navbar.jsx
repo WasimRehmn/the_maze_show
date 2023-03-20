@@ -5,23 +5,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import star_png from './star.png'
 import language_png from './language.png'
-import { DataContext } from "../../context/ContextProvider";
+import { DataContext } from '../../context/ContextProvider'
 
 import axios from 'axios'
 
 export const Navbar = () => {
-  const {
-    searchDataHome,
-    setSearchDataHome,
-    searchQuery,
-    setSearchQuery
-  } = React.useContext(DataContext);
+  const { setSearchDataHome, setSearchQuery } = React.useContext(DataContext)
 
   const [searchText, setSearchText] = React.useState('')
   const [searchData, setSearchData] = React.useState([])
 
   const navigate = useNavigate()
-  
 
   let static_src =
     'https://img.freepik.com/free-psd/electro-music-festival-poster-template_23-2148947807.jpg?w=1380&t=st=1679264350~exp=1679264950~hmac=0df85660868911322a27e4ee9d1fffced7346d2aa4a4f8cc279ad1b764bbe354'
@@ -54,18 +48,15 @@ export const Navbar = () => {
     }
   }
 
-  const navigateWindow = (show_id, slug)=>{
-
+  const navigateWindow = (show_id, slug) => {
     navigate(`/show/${show_id}/${slug}`)
     window.location.reload()
   }
-  const navigateHome= ()=>{
-
+  const navigateHome = () => {
     navigate(`/`)
 
     window.location.reload()
   }
-
 
   return (
     <>
