@@ -1,0 +1,82 @@
+.home {
+  margin-top: 70px;
+}
+
+.genre_container {
+  width: 98%;
+  height: 350px;
+  margin: 0px auto;
+  /* border: 1px solid red; */
+}
+
+.genre_title {
+  text-align: left;
+}
+.genre_title {
+  text-align: left;
+}
+
+.card_slider {
+  /* border: 1px solid blue; */
+  height: 77%;
+  display: flex;
+  gap: 5px;
+  overflow-y: scroll;
+}
+
+.card {
+  /* border: 1px solid green; */
+  aspect-ratio: 0.8/1;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+.card > img {
+  width: 95%;
+  height: 220px;
+}
+.card > p {
+  width: 80%;
+  padding: auto;
+  margin: auto;
+}
+
+.divder {
+  display: block;
+  width: 98%;
+  border: 1px solid black;
+  opacity: 20%;
+  margin: auto;
+}
+
+.search_result {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 50px;
+	column-gap: 0px;
+	width: 90%;
+	margin: auto;
+}
+
+.block_card {
+  display: flex;
+  align-items: flex-start;
+  height: 300px;
+	width: 40%;
+	margin: auto;
+  border: 1px solid black;
+	text-decoration: none;
+	color: black;
+	border-radius: 5px;
+}
+
+.block_card > div:first-child {
+  margin: auto 0px;
+}
+.block_card > div:last-child {
+  margin: 10px 30px;
+}
+.block_card > div > img {
+  width: 200px;
+  aspect-ratio: 1/1.4;
+}
