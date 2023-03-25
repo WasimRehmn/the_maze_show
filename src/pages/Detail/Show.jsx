@@ -11,9 +11,8 @@ export const Show = () => {
 
   const location = useLocation()
 
-	let static_src =
+  let static_src =
     'https://img.freepik.com/free-psd/electro-music-festival-poster-template_23-2148947807.jpg?w=1380&t=st=1679264350~exp=1679264950~hmac=0df85660868911322a27e4ee9d1fffced7346d2aa4a4f8cc279ad1b764bbe354'
-
 
   React.useEffect(() => {
     const show_id = location.pathname.split('/')[2]
@@ -23,8 +22,8 @@ export const Show = () => {
       .then(({ data }) => {
         setShowData(data)
 
-				let arr = data._embedded?.cast.map((cast) => cast.person.name)
-				setCast(arr)
+        let arr = data._embedded?.cast.map((cast) => cast.person.name)
+        setCast(arr)
       })
       .catch((error) => {
         alert(error.message)
@@ -48,10 +47,13 @@ export const Show = () => {
             <div className={styles.additional_info}>
               <p>{showData.premiered.split('-')[0]}</p>
               <b>|</b>
-              <p>
-                {showData.averageRuntime} {' min.'}
-              </p>
-              <b>|</b>
+              {showData.averageRuntime && (
+                <>
+                  {' '}
+                  <p>{showData.averageRuntime + ' min.'}</p>
+                  <b>|</b>
+                </>
+              )}
               <p>Director</p>
             </div>
             <table>
@@ -59,7 +61,7 @@ export const Show = () => {
                 <tr>
                   <td>Cast:</td>
                   <td className={styles.cast}>
-                    {cast.slice(0, 10 + 1).join(', ')}, and more...
+                    {cast.length !== 0 ? cast.slice(0, 10 + 1).join(', ') + ', and more...' : 'Not Given'}
                   </td>
                 </tr>
                 <tr>
@@ -71,12 +73,18 @@ export const Show = () => {
                 <tr>
                   <td>Country:</td>
                   <td>
-                    <p>{showData.webChannel?.country?.name ? showData.webChannel.country.name : showData.network?.country?.name ? showData.network.country.name : "Not Given"}</p>
+                    <p>
+                      {showData.webChannel?.country?.name
+                        ? showData.webChannel.country.name
+                        : showData.network?.country?.name
+                        ? showData.network.country.name
+                        : 'Not Given'}
+                    </p>
                   </td>
                 </tr>
                 <tr>
                   <td>Movie Description:</td>
-                  <td >{parse(showData.summary)}</td>
+                  <td>{showData.summary ? parse(showData.summary) : 'Not Given'}</td>
                 </tr>
               </tbody>
             </table>
